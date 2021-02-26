@@ -1,0 +1,38 @@
+# required packages
+require(link2GI)
+require(RSAGA)
+require(curl)
+require(raster)
+library(mapview)
+
+
+# link SAGA
+#findSAGA()
+#saga<-linkSAGA(ver_select = TRUE)
+
+## create the environment variable for RSAGA calls
+## NOTE this is obligatory if you want to use a defined SAGA version
+## to override the rigid search of RSAGA itself
+env<-RSAGA::rsaga.env(path = "C:/OSGeo4W64/apps/saga-ltr")
+
+# read DEM
+rdem<-raster::raster("C:/pytest/dem_ext.tif")
+
+raster::writeRaster(rdem,"SAGA_dem.sdat",overwrite = TRUE, NAflag = 0)
+
+# eport it to SAGA 
+RSAGA::rsaga.geoprocessor(lib = "ta_morphometry", module = 23,
+                          param = list(DEM = "C:/pytest/SAGA_dem.sgrd", 
+                                       FEATURES = "C:/pytest/SAGA_feat.sgrd",
+				       ELEVATION = "C:/pytest/SAGA_gen.sgrd",
+				       SLOPE = "C:/pytest/SAGA_slp.sgrd",
+				       ASPECT = "C:/pytest/SAGA_asp.sgrd",
+				       PROFC = "C:/pytest/SAGA_pro.sgrd",
+				       PLANC = "C:/pytest/SAGA_plan.sgrd",
+				       LONGC = "C:/pytest/SAGA_long.sgrd",
+				       CROSC = "C:/pytest/SAGA_cross.sgrd",
+				       MAXIC = "C:/pytest/SAGA_maxc.sgrd",
+				       MINIC = "C:/pytest/SAGA_minc.sgrd",
+				       SIZE= 7),
+                          show.output.on.console = TRUE, invisible = TRUE,
+                          env = env)
