@@ -7,11 +7,11 @@ library(RSAGA)
 env <- rsaga.env()
 
 #Read DEM
-dem_data <- "D:/terrain_script_test/input/dem.img"
+dem_data <- "D:/terrain_scripts_test/input/dem2.img"
 inDem <- raster(dem_data)
 
 #Define output directory
-outDir <- "D:/terrain_script_test/Routput/"
+outDir <- "D:/terrain_scripts_test/Routput/"
 
 #Find DEM cell size and save to variable
 cellSize <- res(inDem)[1]
