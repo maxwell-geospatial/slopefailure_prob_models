@@ -11,6 +11,7 @@ dem_data <- "D:/terrain_scripts_test/input/dem2.img"
 inDem <- raster(dem_data)
 
 #Define output directory
+#Will need to set your own paths
 outDir <- "D:/terrain_scripts_test/Routput/"
 
 #Find DEM cell size and save to variable
@@ -40,13 +41,13 @@ srr1 <- srr(inDem, s=scale1)
 srr2 <- srr(inDem, s=scale2)
 srr3 <- srr(inDem, s=scale3)
 
-#Solar-radiation Aspect Index     
+#Solar-Radiation Aspect Index     
 trasp <- trasp(inDem)
 
 #Heat Load Index
 hli <- hli(inDem)
 
-#Calculation using SAGA
+#Calculations using SAGA
 
 #Save DEM to SAGA Format
 raster::writeRaster(inDem, paste0(outDir, "saga_dem.sgrd"),overwrite = TRUE, NAflag = 0)
@@ -159,6 +160,7 @@ saga_csCrv1 <- raster(paste0(outDir,"SAGA_cross", as.character(scale1), ".sdat")
 saga_csCrv2 <- raster(paste0(outDir,"SAGA_cross", as.character(scale2), ".sdat"))
 saga_csCrb3 <- raster(paste0(outDir,"SAGA_cross", as.character(scale3), ".sdat"))
 
+#Fix CRS
 crs(saga_slp1) <- crs(inDem)
 crs(saga_slp2) <- crs(inDem)
 crs(saga_slp3) <- crs(inDem)
@@ -185,6 +187,7 @@ crs(saga_csCrv1) <- crs(inDem)
 crs(saga_csCrv2) <- crs(inDem) 
 crs(saga_csCrb3) <- crs(inDem) 
 
+#Write output to grid stack
 topo_stack <- stack(c(slp,diss1,diss2,diss3,sar,srr1,
                       srr2,srr3, trasp,hli,saga_slp1,saga_slp2,saga_slp3,
                       saga_tri1,saga_tri2,saga_tri3,saga_tpi,saga_proCrv1,saga_proCrv2, 
