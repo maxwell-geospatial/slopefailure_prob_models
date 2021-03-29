@@ -94,7 +94,7 @@ slp.save(outDir + "slp.img")
 
 #Calculate Slope Position
 mnEle1 = FocalStatistics(demIn, NbrCircle(scale1, "CELL"),"MEAN")
-sp1 = (demIn - mnEle1)/(demIn - mnElev1)
+sp1 = demIn - mnEle1
 sp1.save(outDir + "sp" + str(scale1) + ".img")
 mnEle2 = FocalStatistics(demIn, NbrCircle(scale2, "CELL"),"MEAN")
 sp2 = demIn - mnEle2
