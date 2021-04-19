@@ -85,7 +85,7 @@ The code provided here is not the original code used to generate our slope failu
 5. **py_predict_grid.py**: use trained model to predict to a raster stack and create a probabilistic model. 
 6. **py_tile_looping_pnt_ext.py**: large volumes of raster data cannot be used at once do to memory limitations. This script demonstrates how to loop through multiple tiles to generate training data and extract raster values at points.
 
-Note that we have not yet added a predict over tiles loop. We pland to do so in the future. 
+Note that we have not yet added a predict over tiles loop. We plan to do so in the future. 
 
 #### Terrain Variables (Python)
 
