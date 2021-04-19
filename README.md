@@ -143,4 +143,4 @@ We have also provided some example data to experiment with the process. Since th
 
 ## Additional Resources
 
-If you are interested in learning more about machine learning and spatial predictive modeling using Pythonn and/or R, some instructional materials have been provided on the West Virginia View webpage. The [*Open-Source GIScience*](http://www.wvview.org/open_source_gis/Open_Source_GIScience.html) course provides examples in Python while the [*Open-Source Spatial Analytics (R)*](http://www.wvview.org/Open_Source_Spatial_Analytics.html) course provides examples in R.
+If you are interested in learning more about machine learning and spatial predictive modeling using Python and/or R, some instructional materials have been provided on the West Virginia View webpage. The [*Open-Source GIScience*](http://www.wvview.org/open_source_gis/Open_Source_GIScience.html) course provides examples in Python while the [*Open-Source Spatial Analytics (R)*](http://www.wvview.org/Open_Source_Spatial_Analytics.html) course provides examples in R.
